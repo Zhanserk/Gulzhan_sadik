@@ -46,7 +46,7 @@ export default function App() {
             <div className="eyebrow"><span className="dot"></span>Біз туралы</div>
             <h2>Әрбір бөлме — балаға арналған кішкентай әлем</h2>
             <p>«Гулжан» бөбекжай балабақшасы Қазақстан Республикасы, Түркістан облысы, Сарыағаш ауданы, Сарыағаш қаласы, Қазыбек би көшесі, N10A мекенжайында орналасқан.</p>
-            <p>Әрбір жас тобына арнайы бөлінген киім шешетін бөлме, ойын бөлмесі, жатын бөлмесі және дәретхана бар — әр топ бір-бірінен оқшауланған. Барлық жиһаз бен жабдық балалардың бой-жас ерекшеліктеріне сай таңдалған.</p>
+            <p>Әрбір жас тобына арнайы бөлінген киім шешетін бөлме, ойын бөлмесі, жатын бөлмесі және дәретхана бар — әр топ бір-бірiнен оқшауланған. Барлық жиһаз бен жабдық балалардың бой-жас ерекшеліктеріне сай таңдалған.</p>
             <div className="about-facts">
               <div className="fact"><div className="ic">🛏️</div><div><b>Жеке кереует</b><span>әр балаға жеке стационарлық кереует</span></div></div>
               <div className="fact"><div className="ic">🧴</div><div><b>Санитарлық норма</b><span>тексеруден толық өтті</span></div></div>
@@ -67,7 +67,6 @@ export default function App() {
             <h2>Балаңызға жайлы топтар</h2>
             <p>Әр топта жеке киім шешетін, ойын және дамыту аймақтары жоспарланған.</p>
           </div>
-          {/* TODO: топ атауларын (мыс. «Байтерек», «Балапан») кейін нақтылап жаз */}
           <div className="group-cards">
             <div className="gcard">
               <div className="num">Кіші топ</div>
@@ -167,13 +166,22 @@ export default function App() {
             <div className="crow"><div className="ic">📍</div><div><b>Мекенжай</b><span>Қазақстан Республикасы, Түркістан облысы, Сарыағаш ауданы, Сарыағаш қаласы, Қазыбек би көшесі, N10A</span></div></div>
             <div className="crow"><div className="ic">📞</div><div><b>Телефон</b><br /><a href="https://wa.me/77781005619" target="_blank" rel="noreferrer">+7 778 100 56 19 (WhatsApp)</a></div></div>
             <div className="crow"><div className="ic">📷</div><div><b>Instagram</b><br /><a href="https://www.instagram.com/gulzhan_balabaksha" target="_blank" rel="noreferrer">@gulzhan_balabaksha</a></div></div>
-            {/* TODO: нақты email пайда болғанда осында қой */}
             <div className="crow"><div className="ic">✉️</div><div><b>Email</b><span>жақында қосылады</span></div></div>
             <div className="crow"><div className="ic">🕗</div><div><b>Жұмыс уақыты</b><span>Дүйсенбі – Жұма, 08:00 – 18:30</span></div></div>
           </div>
-          <div className="map-placeholder">
-            <span>🗺️</span>
-            <p>Қазыбек би көшесі, N10A<br/>Сарыағаш қаласы</p>
+          
+          {/* GOOGLE MAPS EMBED */}
+          <div className="map-wrapper" style={{ width: '100%', minHeight: '380px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}>
+            <iframe
+              title="«Гулжан» бөбекжай балабақшасы мекенжайы"
+              src="https://maps.google.com/maps?q=Сарыағаш+Қазыбек+би+10А&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: '380px', display: 'block' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </section>
