@@ -171,18 +171,18 @@ export default function App() {
           </div>
           
           {/* GOOGLE MAPS EMBED */}
-          <div className="map-wrapper" style={{ width: '100%', minHeight: '380px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}>
-            <iframe
-              title="«Гулжан» бөбекжай балабақшасы мекенжайы"
-              src="https://maps.google.com/maps?q=Сарыағаш+Қазыбек+би+10А&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: '380px', display: 'block' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+<div className="map-wrapper" style={{ width: '100%', minHeight: '380px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}>
+  <iframe
+    title="«Гулжан» бөбекжай балабақшасы мекенжайы"
+    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2989.803392434274!2d69.16588977606348!3d41.46517937129013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDI3JzU0LjciTiA2OcKwMTAnMDYuNSJF!5e0!3m2!1sru!2skz!4v1788902793674!5m2!1sru!2skz"
+    width="100%"
+    height="100%"
+    style={{ border: 0, minHeight: '380px', display: 'block' }}
+    allowFullScreen=""
+    loading="lazy"
+    referrerPolicy="strict-origin-when-cross-origin"
+  ></iframe>
+</div>
         </div>
       </section>
 
