@@ -19,6 +19,7 @@ export default function Header() {
         <nav className="links">
           <a href="#about">Біз туралы</a>
           <a href="#groups">Топтар</a>
+          <a href="#team">Ұжым</a>
           <a href="#day">Күн тәртібі</a>
           <a href="#gallery">Галерея</a>
           <a href="#trust">Құжаттар</a>
@@ -51,6 +52,7 @@ export default function Header() {
           >
             <a href="#about" onClick={closeMenu}>Біз туралы</a>
             <a href="#groups" onClick={closeMenu}>Топтар</a>
+            <a href="#team" onClick={closeMenu}>Ұжым</a>
             <a href="#day" onClick={closeMenu}>Күн тәртібі</a>
             <a href="#gallery" onClick={closeMenu}>Галерея</a>
             <a href="#trust" onClick={closeMenu}>Құжаттар</a>

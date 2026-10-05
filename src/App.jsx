@@ -2,6 +2,11 @@ import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ManagerCard from './components/ManagerCard';
+import Groups from './components/Groups';
+import Team from './components/Team';
+import Gallery from './components/Gallery';
+import Documents from './components/Documents';
+import { EXTERIOR } from './data/media';
 import './App.css';
 
 export default function App() {
@@ -21,13 +26,16 @@ export default function App() {
               <a href="#about" className="btn btn-ghost">Толығырақ білу</a>
             </div>
             <div className="hero-stats">
-              <div className="stat"><b>4</b><span>жас ерекшелігіне сай топ</span></div>
+              <div className="stat"><b>10</b><span>жас ерекшелігіне сай топ</span></div>
               <div className="stat"><b>100%</b><span>санитарлық нормаларға сай</span></div>
             </div>
           </div>
           <div className="hero-art">
             <div className="hero-blob hb-1"></div>
             <div className="hero-blob hb-2"></div>
+            <div className="hero-photo-frame">
+              <img src={EXTERIOR[0].src} alt={EXTERIOR[0].caption} />
+            </div>
             <div className="hero-icon-card hic-1">🧸</div>
             <div className="hero-icon-card hic-2">☀️</div>
             <div className="hero-icon-card hic-3">🌳</div>
@@ -38,9 +46,10 @@ export default function App() {
       {/* ABOUT SECTION */}
       <section className="about" id="about">
         <div className="wrap about-grid">
-          <div className="about-photo-placeholder">
-            <span>📷</span>
-            <p>Фото жақында қосылады</p>
+          <div className="about-photos">
+            <img className="tall" src={EXTERIOR[2].src} alt={EXTERIOR[2].caption} loading="lazy" />
+            <img src={EXTERIOR[4].src} alt={EXTERIOR[4].caption} loading="lazy" />
+            <img src={EXTERIOR[5].src} alt={EXTERIOR[5].caption} loading="lazy" />
           </div>
           <div className="about-text">
             <div className="eyebrow"><span className="dot"></span>Біз туралы</div>
@@ -59,38 +68,9 @@ export default function App() {
 
       <ManagerCard />
 
-      {/* GROUPS SECTION */}
-      <section className="groups" id="groups">
-        <div className="wrap">
-          <div className="section-head center">
-            <div className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-flex' }}>Топтар мен бөлмелер</div>
-            <h2>Балаңызға жайлы топтар</h2>
-            <p>Әр топта жеке киім шешетін, ойын және дамыту аймақтары жоспарланған.</p>
-          </div>
-          <div className="group-cards">
-            <div className="gcard">
-              <div className="num">Кіші топ</div>
-              <h3>1-топ</h3>
-              <p>Кіші жастағы балаларға арналған жарық, жайлы бөлме.</p>
-            </div>
-            <div className="gcard">
-              <div className="num">Ортаңғы топ</div>
-              <h3>2-топ</h3>
-              <p>Тіл дамыту мен шығармашылыққа арналған кең кеңістік.</p>
-            </div>
-            <div className="gcard">
-              <div className="num">Ересек топ</div>
-              <h3>3-топ</h3>
-              <p>Мектепке дайындықтың негізгі бағдарламасы.</p>
-            </div>
-            <div className="gcard">
-              <div className="num">Мектепалды тобы</div>
-              <h3>4-топ</h3>
-              <p>Сауат ашу мен есептің бастамасы.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Groups />
+
+      <Team />
 
       {/* ADVANTAGES SECTION */}
       <section className="adv-sec">
@@ -127,35 +107,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* GALLERY SECTION — placeholder */}
-      <section className="gallery" id="gallery">
-        <div className="wrap">
-          <div className="section-head center">
-            <div className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-flex' }}>Галерея</div>
-            <h2>Балабақшамыздың ішінен</h2>
-            <p>Фотолар жақында қосылады.</p>
-          </div>
-          <div className="gallery-placeholder">
-            <span>🖼️</span>
-            <p>Суреттер жақында осында болады</p>
-          </div>
-        </div>
-      </section>
+      <Gallery />
 
-      {/* DOCUMENTS SECTION — placeholder */}
-      <section className="trust" id="trust">
-        <div className="wrap">
-          <div className="section-head center">
-            <div className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-flex' }}>Құжаттар</div>
-            <h2>Ресми құжаттар мен жоспарлар</h2>
-            <p>Құжаттар жақында осында қосылады.</p>
-          </div>
-          <div className="docs-placeholder">
-            <span>📄</span>
-            <p>Құжаттар архиві жақында қосылады</p>
-          </div>
-        </div>
-      </section>
+      <Documents />
 
       {/* CONTACTS */}
       <section className="contact" id="contact">

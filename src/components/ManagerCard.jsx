@@ -1,6 +1,7 @@
 import React from 'react';
+import { MANAGER } from '../data/media';
 
-const bossPhoto = encodeURI('/Picters Boss/photo_2026-09-08_01-54-35.jpg');
+const bossPhoto = MANAGER;
 
 export default function ManagerCard() {
   return (

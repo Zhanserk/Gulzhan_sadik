@@ -38,6 +38,7 @@ export default function Footer() {
             <ul>
               <li><a href="#about">Біз туралы</a></li>
               <li><a href="#groups">Топтар</a></li>
+              <li><a href="#team">Ұжым</a></li>
               <li><a href="#day">Күн тәртібі</a></li>
               <li><a href="#gallery">Галерея</a></li>
               <li><a href="#trust">Құжаттар</a></li>
