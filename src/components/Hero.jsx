@@ -1,90 +1,48 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { KINDERGARTEN, PEOPLE } from '../data/site';
+import { EXTERIOR, GROUPS } from '../data/media';
+import { Flower, Leaf, Wave } from './Decor';
 
 export default function Hero() {
+  const gate = EXTERIOR[0];
+
   return (
-    <motion.section
-      className="hero"
-      id="top"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-    >
+    <section className="hero" id="top">
+      <Flower className="fl fl-a" />
+      <Flower className="fl fl-b" />
+      <Flower className="fl fl-c" />
+      <Leaf className="lf lf-a" />
+      <Leaf className="lf lf-b" />
+
       <div className="wrap hero-grid">
-        <div className="hero-content">
-          <motion.div
-            className="eyebrow"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            <span className="dot"></span>
-            Сарыағаш қаласындағы сенімді балабақша
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
-          >
-            Балаңыздың күні{' '}
-            <span className="crayon">жылылықпен</span> толы өтетін мекен
-          </motion.h1>
-
-          <motion.p
-            className="lead"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            «Гулжан» бөбекжай балабақшасы — жарық, жайлы бөлмелер, жеке ойын
-            алаңдары және мейірімді тәрбиешілер ұжымы.
-          </motion.p>
-
-          <motion.div
-            className="hero-cta"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, duration: 0.6 }}
-          >
-            <a href="#contact" className="btn btn-primary">
-              Байланысу
-            </a>
-            <a href="#about" className="btn btn-ghost">
-              Толығырақ білу
-            </a>
-          </motion.div>
-
-          <motion.div
-            className="hero-stats"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-          >
-            <div className="stat">
-              <b>4</b>
-              <span>жас ерекшелігіне сай топ</span>
-            </div>
-            <div className="stat">
-              <b>100%</b>
-              <span>санитарлық нормаларға сай</span>
-            </div>
-          </motion.div>
+        <div className="hero-copy">
+          <p className="chip"><Flower className="chip-flower" /> {KINDERGARTEN.city} · сенімді балабақша</p>
+          <h1>
+            Балаңыздың күні <em>жылылықпен</em> толы өтетін мекен
+          </h1>
+          <p className="lead">
+            «Гулжан» бөбекжай балабақшасы — жарық, жайлы бөлмелер, жеке ойын алаңдары және мейірімді тәрбиешілер ұжымы.
+          </p>
+          <div className="hero-actions">
+            <a href="#contact" className="btn btn-gold">Байланысу</a>
+            <a href="#groups" className="btn btn-line">Топтарды көру →</a>
+          </div>
+          <ul className="hero-stats">
+            <li><b>{GROUPS.length}</b><span>жас тобы</span></li>
+            <li><b>{PEOPLE.length}</b><span>педагогикалық ұжым</span></li>
+            <li><b>100%</b><span>санитарлық нормаларға сай</span></li>
+          </ul>
         </div>
 
-        <motion.div
-          className="hero-art"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
-        >
-          <div className="hero-blob hb-1"></div>
-          <div className="hero-blob hb-2"></div>
-          <div className="hero-icon-card hic-1">🧸</div>
-          <div className="hero-icon-card hic-2">☀️</div>
-          <div className="hero-icon-card hic-3">🌳</div>
-        </motion.div>
+        <div className="hero-visual">
+          <div className="hero-arch">
+            <img src={gate.src} alt={gate.caption} />
+          </div>
+          <div className="stk stk-a">🌸 Гүлдей ұқыпты<small>таза, жарық бөлмелер</small></div>
+          <div className="stk stk-b">🧸 Жылы ұжым</div>
+        </div>
       </div>
-    </motion.section>
+      <Wave className="hero-wave" />
+    </section>
   );
 }

@@ -1,31 +1,23 @@
 import React from 'react';
 import { MANAGER } from '../data/media';
-
-const bossPhoto = MANAGER;
+import { MANAGER_INFO } from '../data/site';
+import { Flower } from './Decor';
 
 export default function ManagerCard() {
   return (
     <section className="manager-sec" id="manager">
       <div className="wrap">
-        <div className="manager-card">
-          <div className="manager-photo-wrapper">
-            <img src={bossPhoto} alt="Балабақша меңгерушісі" />
-            <div className="manager-badge">Балабақша меңгерушісі</div>
+        <div className="manager-card reveal">
+          <Flower className="manager-flower" />
+          <div className="manager-photo">
+            <img src={MANAGER} alt={MANAGER_INFO.role} />
+            <span className="manager-badge">{MANAGER_INFO.role}</span>
           </div>
-
           <div className="manager-info">
-            <div className="eyebrow"><span className="dot"></span>Меңгеруші сөзі</div>
-            <h3>«Әр баланың күлкісі — біздің ең үлкен жетістігіміз»</h3>
-            <p className="manager-quote">
-              «Гулжан» бөбекжай балабақшасына қош келдіңіздер! Біздің басты мақсатымыз —
-              әрбір бүлдіршінге жылылық, қауіпсіздік және сапалы тәрбие беру.
-            </p>
-
-            <div className="manager-name">Каликулова Мөлдірай Серікқызы</div>
-
-            <div className="manager-meta">
-
-            </div>
+            <p className="kicker">Меңгеруші сөзі</p>
+            <h3>{MANAGER_INFO.title}</h3>
+            <p className="manager-quote">{MANAGER_INFO.text}</p>
+            <div className="manager-name">{MANAGER_INFO.name}</div>
           </div>
         </div>
       </div>

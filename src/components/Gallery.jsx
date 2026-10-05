@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { EXTERIOR } from '../data/media';
+import Lightbox from './Lightbox';
 
 export default function Gallery() {
+  const [open, setOpen] = useState(null);
+
   return (
     <section className="gallery" id="gallery">
       <div className="wrap">
-        <div className="section-head center">
-          <div className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-flex' }}>Галерея</div>
-          <h2>Балабақшамыздың ауласы</h2>
+        <div className="section-title reveal">
+          <p className="kicker">Галерея</p>
+          <h2>Балабақшамыздың <em>ауласы</em></h2>
           <p>Қақпадан бастап ойын алаңына дейін — біздің сыртқы көрінісіміз.</p>
         </div>
 
-        <div className="gallery-grid">
-          {EXTERIOR.map((p) => (
-            <figure key={p.src} className="gallery-item">
+        <div className="mosaic">
+          {EXTERIOR.map((p, i) => (
+            <button type="button" key={p.src} className={`mosaic-item m${i}`} aria-label={p.caption} onClick={() => setOpen(i)}>
               <img src={p.src} alt={p.caption} loading="lazy" />
-              <figcaption>{p.caption}</figcaption>
-            </figure>
+              <span>{p.caption}</span>
+            </button>
           ))}
         </div>
       </div>
+
+      {open !== null && (
+        <Lightbox title="Балабақша ауласы" items={EXTERIOR} index={open} onChange={setOpen} onClose={() => setOpen(null)} />
+      )}
     </section>
   );
 }

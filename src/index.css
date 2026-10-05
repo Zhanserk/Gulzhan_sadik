@@ -1,18 +1,52 @@
-/* Минимальный сброс стилей */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,700&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --plum: #3a0b2e;
+  --plum-2: #5b1245;
+  --rose: #e8326f;
+  --rose-2: #ff6b97;
+  --rose-deep: #a3124f;
+  --petal: #ffe3ec;
+  --blush: #fff5f8;
+  --leaf: #2faa6e;
+  --leaf-deep: #145a3c;
+  --leaf-soft: #d9f5e6;
+  --gold: #f6b93b;
+  --gold-soft: #fff0c9;
+  --lav: #8e6bff;
+  --lav-soft: #ece6ff;
+  --ink: #2c1020;
+  --muted: #6f5260;
+  --line: #f3d6e0;
+
+  --radius: 28px;
+  --shadow: 0 26px 48px -26px rgba(58, 11, 46, 0.55);
+  --display: 'Philosopher', Georgia, serif;
+  --body: 'Nunito', 'Segoe UI', sans-serif;
 }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 
 body {
-  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  background: var(--blush);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }

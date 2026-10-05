@@ -303,10 +303,6 @@ export const STAFF = [
     "source": "IMG_1964.jpg"
   },
   {
-    "src": "/photos/staff/staff-18.jpg",
-    "source": "IMG_1967.jpg"
-  },
-  {
     "src": "/photos/staff/staff-19.jpg",
     "source": "IMG_1968.jpg"
   },

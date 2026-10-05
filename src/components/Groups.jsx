@@ -1,62 +1,49 @@
 import React, { useState } from 'react';
 import { GROUPS } from '../data/media';
+import Lightbox from './Lightbox';
 
-function GroupCard({ group, index }) {
-  const [i, setI] = useState(0);
-  const total = group.photos.length;
-  const photo = group.photos[i];
-  const go = (d) => setI((i + d + total) % total);
+const TONES = ['rose', 'leaf', 'gold', 'lav', 'rose', 'leaf', 'gold', 'lav', 'rose', 'leaf'];
 
-  return (
-    <article className="gr-card">
-      <div className="gr-photo">
-        <img src={photo.src} alt={`«${group.name}» тобы — ${photo.caption}`} loading="lazy" />
-        <span className="gr-cap">{photo.caption}</span>
-        {total > 1 && (
-          <>
-            <button type="button" className="gr-nav gr-prev" aria-label="Алдыңғы сурет" onClick={() => go(-1)}>‹</button>
-            <button type="button" className="gr-nav gr-next" aria-label="Келесі сурет" onClick={() => go(1)}>›</button>
-          </>
-        )}
-      </div>
-      {total > 1 && (
-        <div className="gr-thumbs">
-          {group.photos.map((p, k) => (
-            <button
-              key={p.src}
-              type="button"
-              className={k === i ? 'on' : ''}
-              aria-label={`${k + 1}-сурет: ${p.caption}`}
-              onClick={() => setI(k)}
-            >
-              <img src={p.src} alt="" loading="lazy" />
-            </button>
-          ))}
-        </div>
-      )}
-      <div className="gr-body">
-        <div className="num">{String(index + 1).padStart(2, '0')} · топ</div>
-        <h3>«{group.name}» тобы</h3>
-      </div>
-    </article>
-  );
-}
-
+// Топтар — қысқа тізім; бетін басқанда топтың барлық суреті үлкен терезеде ашылады.
 export default function Groups() {
+  const [open, setOpen] = useState(null); // { g: топ индексі, i: сурет индексі }
+  const group = open ? GROUPS[open.g] : null;
+
   return (
     <section className="groups" id="groups">
       <div className="wrap">
-        <div className="section-head center">
-          <div className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-flex' }}>Топтар мен бөлмелер</div>
-          <h2>Балаңызға арналған {GROUPS.length} жайлы топ</h2>
-          <p>Әр топта киім ілу, ойын, ұйықтау және жуыну бөлмелері бөлек. Суретті сырғытып көріңіз.</p>
+        <div className="section-title reveal">
+          <p className="kicker">Топтар мен бөлмелер</p>
+          <h2>Балаңызға арналған <em>{GROUPS.length} жайлы топ</em></h2>
+          <p>Топты таңдаңыз — киім ілу, ойын, ұйқы және жуыну бөлмелерінің суреттері толық ашылады.</p>
         </div>
-        <div className="gr-grid">
-          {GROUPS.map((g, idx) => (
-            <GroupCard key={g.slug} group={g} index={idx} />
+
+        <ul className="gl-list">
+          {GROUPS.map((g, i) => (
+            <li key={g.slug} className="reveal" style={{ transitionDelay: `${(i % 2) * 60}ms` }}>
+              <button type="button" className={`gl-row tone-${TONES[i]}`} onClick={() => setOpen({ g: i, i: 0 })}>
+                <span className="gl-no">{String(i + 1).padStart(2, '0')}</span>
+                <span className="gl-thumb"><img src={g.photos[0].src} alt="" loading="lazy" /></span>
+                <span className="gl-text">
+                  <b>«{g.name}» тобы</b>
+                  <small>{g.photos.length} сурет</small>
+                </span>
+                <span className="gl-go">Көру →</span>
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
+
+      {group && (
+        <Lightbox
+          title={`«${group.name}» тобы`}
+          items={group.photos}
+          index={open.i}
+          onChange={(i) => setOpen({ g: open.g, i })}
+          onClose={() => setOpen(null)}
+        />
+      )}
     </section>
   );
 }
